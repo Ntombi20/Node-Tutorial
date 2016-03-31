@@ -10,9 +10,9 @@ users.push({ first_name : 'Callum', last_name : 'Bradshaw' });
 users.push({ first_name : 'Neil', last_name : 'Bradshaw' });
 
 //now loop through the users array and write the following data to the console below each other for each user
-for (var i = 0; i < users.length; i++) {
-  users[i]
-}
 //you can use the forEach method
-
+users.forEach(function() {users});
 //Hi, first_name last_name!
+console.log("Hi," + " " + users[0].first_name + " " +users[0].last_name+ "!");
+console.log("Hi," + " " + users[1].first_name + " " +users[1].last_name+ "!");
+console.log("Hi," + " " + users[2].first_name + " " +users[2].last_name+ "!");
