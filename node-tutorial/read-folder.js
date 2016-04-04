@@ -1,17 +1,28 @@
 
 var fs = require('fs');
-var contains = []
+var data = []
 
-var readFolder = fs.readdirSync('./files/week1', 'utf8');
-// console.log(readFolder);
+var linesInFiles = fs.readdirSync('./files/week1', 'utf8');
+// console.log(linesInFiles);
 
-  readFolder.forEach(function(readFolder){
-     var files = fs.readFileSync('./files/week1/' + readFolder, 'utf8' )
+  linesInFiles.forEach(function(linesInFiles){
+     var files = fs.readFileSync('./files/week1/' + linesInFiles, 'utf8' )
      var linesInFiles = files.split('\n');
 
      linesInFiles.forEach(function(allLine){
-           contains.push(allLine);
+           data.push(allLine);
       })
 
   })
-  console.log(contains);
+console.log(data);
+
+exports.linesInFiles = function(folderName) {
+    var data = findLines(folderName);
+    return data;
+  }
+
+exports.linesInFilesAsync = function(folderName, callback){
+  var data = findLines(folderName);
+    callback(null, data);
+    return data;
+}
