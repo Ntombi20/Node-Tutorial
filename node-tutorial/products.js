@@ -1,19 +1,38 @@
+module.exports = function(filePath){
+
+//returns a list of products
+
 var fs = require('fs');
 
-module.exports = function(){
+this.productNames = function(callback){
+    var productList = [];
+    var readFile = fs.readFileSync(filePath, "utf8");
+    var rows = readFile.split('\n');
 
-  var products = fs.readFileSync('./files/products.csv');
-  var productList = [];
+      var product = {};
 
-    for (var i = 0; i < products.length; i++) {
-      console.log(products[i].split(","))
-    }
+    rows.forEach(function(row) {
+      var productName = row.split(',')[1];
 
+       if(product[productName]=== undefined){
+          productList.push(productName);
+          product[productName]=0;
+       }
 
-  //   var productName = item.split(",")[1];
-  //   if (productList.indexOf(productName) === -1) {
-  //     productList.push(productName);
-  //   }
-  // });
+    });
 
+        callback(null, productList);
 }
+
+
+//return products;
+
+// }
+//
+// this.productsSold = function() {
+//
+//
+//
+// }
+//
+};

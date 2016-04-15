@@ -5,7 +5,6 @@ var data = []
   var linesInFiles = fs.readdirSync('./files/week1', 'utf8');
   linesInFiles.forEach(function(linesInFiles){
      var files = fs.readFileSync('./files/week1/' + linesInFiles, 'utf8' )
-     console.log(files)
      var linesInFilesAsync = files.split('\n');
 
     linesInFilesAsync.forEach(function(allLine){
